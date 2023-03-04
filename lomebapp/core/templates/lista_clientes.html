@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% block content %}
+
+<a href="{% url 'cadastrar_cliente' %}" class="button blue"
+  >Cadastrar Cliente</a
+>
+<table class="records">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>CPF</th>
+      <th>Telefone</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for cliente in clientes %}
+    <tr>
+      <td>{{ cliente.nome }}</td>
+      <td>{{ cliente.cpf }}</td>
+      <td>{{ cliente.telefone }}</td>
+      <td>
+        <a href="{% url 'atualizar_cliente' cliente.id %}">Editar</a>
+        <!-- Adiciona o botão "Editar" -->
+        <a href="{% url 'excluir_cliente' cliente.id %}">Excluir</a>
+      </td>
+      <!-- Adiciona o botão "Excluir" -->
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

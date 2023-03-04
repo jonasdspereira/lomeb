@@ -1,0 +1,44 @@
+{% extends 'base.html' %} {% block content %}
+<div class="d-flex justify-content-center mt-5">
+  <form method="post" class="p-3 border rounded shadow">
+    {% csrf_token %}
+    <div class="form-group">
+      <h2 class="mb-4">Cadastro produto</h2>
+      <div class="mb-3">
+        <label for="{{ form.url_imagem.id_for_label }}" class="form-label"
+          >{{ form.url_imagem.label }}</label
+        >
+        {{ form.url_imagem }}
+      </div>
+      <div class="mb-3">
+        <label for="{{ form.nome.id_for_label }}" class="form-label"
+          >{{ form.nome.label }}</label
+        >
+        {{ form.nome }}
+      </div>
+      <div class="mb-3">
+        <label for="{{ form.descricao.id_for_label }}" class="form-label"
+          >{{ form.descricao.label }}</label
+        >
+        {{ form.descricao }}
+      </div>
+      <div class="mb-3">
+        <label for="{{ form.preco.id_for_label }}" class="form-label"
+          >{{ form.preco.label }}</label
+        >
+        {{ form.preco }}
+      </div>
+      <div class="mb-3">
+        <label for="{{ form.codigo_barras.id_for_label }}" class="form-label"
+          >{{ form.codigo_barras.label }}</label
+        >
+        {{ form.codigo_barras }}
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+    <a href="{% url 'lista_produtos' %}" type="button" class="btn btn-secondary"
+      >Cancelar</a
+    >
+  </form>
+</div>
+{% endblock %}
